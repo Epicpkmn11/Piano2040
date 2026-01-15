@@ -21,17 +21,32 @@ int main() {
 	Utils::InputReport input_report;
 	Utils::InputState input_state;
 
-	usbd_driver_init(Config::usb_mode);
+	usb_mode_t usb_mode = Config::usb_mode;
 
-	// Enter flash mode if plugged in while holding the leftmost key
+	// Override settings by holding keys on boot
 	keys.updateInputState(input_state);
-	if (input_state.keys[0] & 1)
-		reset_usb_boot(0, PICO_STDIO_USB_RESET_BOOTSEL_INTERFACE_DISABLE_MASK);
+	switch (input_state.keys[0] & 0xB) {
+		case 1: // C
+			// Reboot to flash mode
+			reset_usb_boot(0, PICO_STDIO_USB_RESET_BOOTSEL_INTERFACE_DISABLE_MASK);
+			break;
+		case 2: // C#
+			usb_mode = USB_MODE_MIDI;
+			break;
+		case 8: // D#
+			usb_mode = USB_MODE_KEYBOARD;
+			break;
+		case 10: // C# and D#
+			usb_mode = USB_MODE_DEBUG;
+			break;
+	}
+
+	usbd_driver_init(usb_mode);
 
 	while (true) {
 		keys.updateInputState(input_state);
 
-		usbd_driver_send_report(input_report.getReport(input_state, Piano2040::Config::usb_mode));
+		usbd_driver_send_report(input_report.getReport(input_state, usb_mode));
 		usbd_driver_task();
 	}
 
