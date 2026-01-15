@@ -86,7 +86,7 @@ void tud_midi_rx_cb(uint8_t itf) {
 
 static const usbd_class_driver_t midi_app_driver = {
 #if CFG_TUSB_DEBUG >= 2
-	.name = "Piano2040",
+	.name = "MIDI",
 #endif
 	.init = midid_init,
 	.reset = midid_reset,
@@ -98,7 +98,7 @@ static const usbd_class_driver_t midi_app_driver = {
 
 const usbd_driver_t *get_midi_device_driver() {
 	static const usbd_driver_t midi_device_driver = {
-		.name = "Piano2040",
+		.name = "MIDI",
 		.app_driver = &midi_app_driver,
 		.desc_device = &midi_desc_device,
 		.desc_cfg = midi_desc_cfg,

@@ -84,7 +84,7 @@ void hid_keyboard_set_report_cb(uint8_t itf, uint8_t report_id, hid_report_type_
 
 const usbd_driver_t *get_hid_keyboard_device_driver() {
 	static const usbd_driver_t hid_keyboard_device_driver = {
-		.name = "Piano2040",
+		.name = "Keyboard",
 		.app_driver = &hid_app_driver,
 		.desc_device = &keyboard_desc_device,
 		.desc_cfg = keyboard_desc_cfg,
