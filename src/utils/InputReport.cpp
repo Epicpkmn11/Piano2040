@@ -19,7 +19,7 @@ usb_report_t InputReport::getKeyboardReport(const InputState &state) {
 	std::array<std::array<uint8_t, 13>, Piano2040::Config::octave_count> mappings = {{
 		{HID_KEY_Z, HID_KEY_S, HID_KEY_X, HID_KEY_D, HID_KEY_C, HID_KEY_V, HID_KEY_G, HID_KEY_B, HID_KEY_H, HID_KEY_N, HID_KEY_J, HID_KEY_M, 0},
 		{HID_KEY_Q, HID_KEY_2, HID_KEY_W, HID_KEY_3, HID_KEY_E, HID_KEY_R, HID_KEY_5, HID_KEY_T, HID_KEY_6, HID_KEY_Y, HID_KEY_7, HID_KEY_U, 0},
-		{HID_KEY_I, HID_KEY_9, HID_KEY_O, HID_KEY_0, HID_KEY_P, HID_KEY_A, HID_KEY_F, HID_KEY_K, HID_KEY_L, HID_KEY_1, HID_KEY_4, HID_KEY_8, HID_KEY_9},
+		{HID_KEY_I, HID_KEY_9, HID_KEY_O, HID_KEY_0, HID_KEY_P, HID_KEY_A, HID_KEY_F, HID_KEY_K, HID_KEY_L, HID_KEY_1, HID_KEY_4, HID_KEY_8, HID_KEY_MINUS},
 	}};
 
 	for (size_t i = 0; i < state.keys.size(); i++) {
