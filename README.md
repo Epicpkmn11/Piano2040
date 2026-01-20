@@ -1,8 +1,12 @@
 # Piano2040
 
+![A 3D printed three octave keyboard](/resources/cover-photo.jpg)
+
 This is a firmware for a DIY piano keyboard using an RP2040 microcontroller. It supports USB MIDI and PC keyboard outputs, as well as a debug mode using USB serial.
 
 This is based on ravinrabbid's [DivaCon2040](https://github.com/ravinrabbid/DivaCon2040). It's heavily cut down as I was not interested in controller support, display, etc, but DivaCon2040 provided excellent bones for MIDI and keyboard. Thank you for the well structured project!
+
+The 3D files I used for printing my keyboard are [on Thingiverse](https://www.thingiverse.com/thing:7272187).
 
 ## Building
 If you need to make any adjustments to my configuration, `include/GlobalConfiguration.h` has most of the settings you would need. See [SCHEMATIC.md](SCHEMATIC.md) for how everything is wired by default.
