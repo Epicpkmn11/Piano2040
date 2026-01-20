@@ -27,6 +27,7 @@ private:
 		uint32_t m_gpio_mask;
 
 		uint32_t m_last_change{0};
+		bool m_last_state{false};
 		bool m_active{false};
 
 	public:

@@ -13,10 +13,17 @@ void Keys::Key::setState(bool state, uint8_t debounce_delay) {
 	}
 
 	// Immediately change the input state, but only allow a change every debounce_delay milliseconds.
-	const uint32_t now = to_ms_since_boot(get_absolute_time());
-	if (m_last_change + debounce_delay <= now) {
-		m_active = state;
-		m_last_change = now;
+	if (state) {
+		m_active = true;
+		m_last_state = true;
+	} else {
+		const uint32_t now = to_ms_since_boot(get_absolute_time());
+		if (m_last_state) {
+			m_last_state = false;
+			m_last_change = now;
+		} else if (m_last_change + debounce_delay <= now) {
+			m_active = false;
+		}
 	}
 }
 

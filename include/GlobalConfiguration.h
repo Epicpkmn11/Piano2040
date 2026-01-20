@@ -58,7 +58,7 @@ const Peripherals::Keys::Config buttons_config = {
 			26
 		},
 	},
-	.debounce_delay_ms = 3,
+	.debounce_delay_ms = 10,
 };
 
 } // namespace Piano2040::Config
