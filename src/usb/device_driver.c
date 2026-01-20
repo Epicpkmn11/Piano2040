@@ -32,6 +32,7 @@ void usbd_driver_init(usb_mode_t mode) {
 
 	switch (mode) {
 		case USB_MODE_KEYBOARD:
+		case USB_MODE_KEYBOARD_SMALL:
 			usbd_driver = get_hid_keyboard_device_driver();
 			break;
 		case USB_MODE_MIDI:

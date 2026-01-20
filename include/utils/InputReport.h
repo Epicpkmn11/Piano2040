@@ -22,7 +22,7 @@ private:
 	};
 	std::string m_debug_report;
 
-	usb_report_t getKeyboardReport(const InputState &state);
+	usb_report_t getKeyboardReport(const InputState &state, bool small);
 	usb_report_t getMidiReport(const InputState &state);
 	usb_report_t getDebugReport(const InputState &state);
 

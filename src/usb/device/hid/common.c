@@ -9,6 +9,7 @@
 uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t *buffer, uint16_t reqlen) {
 	switch (usbd_driver_get_mode()) {
 		case USB_MODE_KEYBOARD:
+		case USB_MODE_KEYBOARD_SMALL:
 			return hid_keyboard_get_report_cb(instance, report_id, report_type, buffer, reqlen);
 		default:
 			break;
@@ -20,6 +21,7 @@ uint16_t tud_hid_get_report_cb(uint8_t instance, uint8_t report_id, hid_report_t
 void tud_hid_set_report_cb(uint8_t instance, uint8_t report_id, hid_report_type_t report_type, uint8_t const *buffer, uint16_t bufsize) {
 	switch (usbd_driver_get_mode()) {
 		case USB_MODE_KEYBOARD:
+		case USB_MODE_KEYBOARD_SMALL:
 			hid_keyboard_set_report_cb(instance, report_id, report_type, buffer, bufsize);
 			break;
 		default:
@@ -32,6 +34,7 @@ uint8_t const *tud_hid_descriptor_report_cb(uint8_t instance) {
 
 	switch (usbd_driver_get_mode()) {
 		case USB_MODE_KEYBOARD:
+		case USB_MODE_KEYBOARD_SMALL:
 			return keyboard_desc_hid_report;
 		default:
 			break;

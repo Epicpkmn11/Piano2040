@@ -16,6 +16,7 @@ extern "C" {
 
 typedef enum {
 	USB_MODE_KEYBOARD,
+	USB_MODE_KEYBOARD_SMALL,
 	USB_MODE_MIDI,
 	USB_MODE_DEBUG,
 } usb_mode_t;
