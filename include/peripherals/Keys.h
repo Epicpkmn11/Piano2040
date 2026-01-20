@@ -40,7 +40,7 @@ private:
 	};
 
 	Config m_config;
-	std::vector<Key> m_keys;
+	std::array<std::vector<Key>, Piano2040::Config::octave_count> m_keys;
 
 public:
 	Keys(const Config &config);

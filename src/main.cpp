@@ -23,6 +23,9 @@ int main() {
 
 	usb_mode_t usb_mode = Config::usb_mode;
 
+	// Wait a few miliseconds or sometimes it fails to read keys
+	sleep_ms(10);
+
 	// Override settings by holding keys on boot
 	keys.updateInputState(input_state);
 	switch (input_state.keys[0] & 0xB) {

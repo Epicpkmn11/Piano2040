@@ -17,6 +17,7 @@
 namespace Piano2040::Config {
 
 const int octave_count = OCTAVE_COUNT;
+const int sleep_us = 1;
 const usb_mode_t usb_mode = USB_MODE_MIDI;
 
 } // namespace Piano2040::Config
